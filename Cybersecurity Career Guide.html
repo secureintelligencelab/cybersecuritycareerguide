@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Career Guide - Lecture Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            background: #34495e;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: #3498db;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            border-left: 4px solid #3498db;
+            padding-left: 1.5rem;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+
+        .job-card, .cert-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .job-card:hover, .cert-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .job-title, .cert-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .salary {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .cert-cost {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .free-badge {
+            background: #27ae60;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pathway {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .pathway h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .pathway-steps {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #fdcb6e;
+        }
+
+        .tip-icon {
+            color: #f39c12;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .collapsible {
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            padding: 1rem;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            margin: 0.5rem 0;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #2980b9;
+        }
+
+        .collapsible-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #ecf0f1;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .collapsible-content.active {
+            max-height: 500px;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                flex-direction: column;
+            }
+            
+            .pathway-steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Cybersecurity Career Guide</h1>
+            <p>Your comprehensive roadmap to a successful cybersecurity career</p>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#jobs">Job Roles</a></li>
+                <li><a href="#pathways">Learning Paths</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#salaries">Salaries</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <section id="overview" class="section">
+                <h2>📊 Industry Overview</h2>
+                <p>The cybersecurity industry is experiencing unprecedented growth, driven by increasing cyber threats and digital transformation. With over 3.5 million unfilled cybersecurity positions globally, this field offers excellent job security and growth opportunities.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">3.5M</div>
+                        <div>Unfilled Jobs Worldwide</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$103K</div>
+                        <div>Average Starting Salary</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">32%</div>
+                        <div>Projected Job Growth</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">0%</div>
+                        <div>Unemployment Rate</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="jobs" class="section">
+                <h2>💼 Popular Cybersecurity Job Roles</h2>
+                
+                <div class="job-card">
+                    <div class="job-title">Security Analyst</div>
+                    <div class="salary">$55,000 - $95,000</div>
+                    <p><strong>Responsibilities:</strong> Monitor security events, investigate incidents, implement security measures</p>
+                    <p><strong>Skills Needed:</strong> SIEM tools, network security, incident response, threat analysis</p>
+                    <p><strong>Entry Level:</strong> Yes - Perfect starting position</p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">Penetration Tester / Ethical Hacker</div>
+                    <div class="salary">$75,000 - $140,000</div>
+                    <p><strong>Responsibilities:</strong> Test systems for vulnerabilities, perform security assessments</p>
+                    <p><strong>Skills Needed:</strong> Kali Linux, Metasploit, Burp Suite, scripting, networking</p>
+                    <p><strong>Entry Level:</strong> Intermediate - Requires foundational knowledge</p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">Security Engineer</div>
+                    <div class="salary">$85,000 - $150,000</div>
+                    <p><strong>Responsibilities:</strong> Design and implement security systems, architecture planning</p>
+                    <p><strong>Skills Needed:</strong> System administration, cloud security, automation, DevSecOps</p>
+                    <p><strong>Entry Level:</strong> Intermediate to Advanced</p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">Incident Response Specialist</div>
+                    <div class="salary">$70,000 - $130,000</div>
+                    <p><strong>Responsibilities:</strong> Respond to security breaches, forensic analysis, crisis management</p>
+                    <p><strong>Skills Needed:</strong> Digital forensics, malware analysis, crisis communication</p>
+                    <p><strong>Entry Level:</strong> Intermediate</p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">Compliance Analyst</div>
+                    <div class="salary">$60,000 - $110,000</div>
+                    <p><strong>Responsibilities:</strong> Ensure regulatory compliance, risk assessment, policy development</p>
+                    <p><strong>Skills Needed:</strong> GRC frameworks, auditing, risk management, legal knowledge</p>
+                    <p><strong>Entry Level:</strong> Yes - Good for those with business background</p>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-title">Chief Information Security Officer (CISO)</div>
+                    <div class="salary">$200,000 - $400,000+</div>
+                    <p><strong>Responsibilities:</strong> Strategic security leadership, board reporting, budget management</p>
+                    <p><strong>Skills Needed:</strong> Leadership, business acumen, strategic planning, extensive experience</p>
+                    <p><strong>Entry Level:</strong> Senior Executive Level</p>
+                </div>
+            </section>
+
+            <section id="pathways" class="section">
+                <h2>🛤️ Learning Pathways</h2>
+                
+                <div class="pathway">
+                    <h4>🎯 Beginner Path - Security Analyst</h4>
+                    <div class="pathway-steps">
+                        <div class="step">Basic IT Knowledge</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">CompTIA Security+</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">SIEM Training</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Entry-Level Position</div>
+                    </div>
+                </div>
+
+                <div class="pathway">
+                    <h4>🔍 Technical Path - Penetration Tester</h4>
+                    <div class="pathway-steps">
+                        <div class="step">Networking Fundamentals</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Linux/Windows Skills</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Scripting (Python/Bash)</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">CEH or OSCP</div>
+                    </div>
+                </div>
+
+                <div class="pathway">
+                    <h4>🏗️ Engineering Path - Security Engineer</h4>
+                    <div class="pathway-steps">
+                        <div class="step">System Administration</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Cloud Platforms</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">DevOps/Automation</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">CISSP or Cloud Certs</div>
+                    </div>
+                </div>
+
+                <div class="pathway">
+                    <h4>📋 Management Path - GRC Specialist</h4>
+                    <div class="pathway-steps">
+                        <div class="step">Business/Legal Background</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Risk Management</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">Compliance Frameworks</div>
+                        <div class="arrow">➡️</div>
+                        <div class="step">CISA or CRISC</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="certifications" class="section">
+                <h2>🏆 Cybersecurity Certifications</h2>
+                
+                <h3>Entry-Level Certifications</h3>
+                
+                <div class="cert-card">
+                    <div class="cert-title">CompTIA Security+ <span class="free-badge">DOD Approved</span></div>
+                    <div class="cert-cost">Cost: $370</div>
+                    <p><strong>Best For:</strong> Complete beginners, career changers</p>
+                    <p><strong>Topics:</strong> Network security, compliance, operational security, threats</p>
+                    <p><strong>Study Time:</strong> 2-3 months</p>
+                    <button class="collapsible">Free Study Resources</button>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Professor Messer's Free Security+ Training</li>
+                            <li>CompTIA CertMaster Practice (Free trial)</li>
+                            <li>Cybrary.it free courses</li>
+                            <li>YouTube: "Professor Messer Security+"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-title">CompTIA Network+ <span class="free-badge">Foundation</span></div>
+                    <div class="cert-cost">Cost: $358</div>
+                    <p><strong>Best For:</strong> Those needing networking fundamentals</p>
+                    <p><strong>Topics:</strong> Network protocols, troubleshooting, security concepts</p>
+                    <p><strong>Study Time:</strong> 2-4 months</p>
+                </div>
+
+                <h3>Intermediate Certifications</h3>
+
+                <div class="cert-card">
+                    <div class="cert-title">Certified Ethical Hacker (CEH)</div>
+                    <div class="cert-cost">Cost: $1,199</div>
+                    <p><strong>Best For:</strong> Aspiring penetration testers</p>
+                    <p><strong>Topics:</strong> Ethical hacking, penetration testing, vulnerability assessment</p>
+                    <p><strong>Study Time:</strong> 3-6 months</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-title">GCIH (GIAC Certified Incident Handler)</div>
+                    <div class="cert-cost">Cost: $7,000+ (with training)</div>
+                    <p><strong>Best For:</strong> Incident response specialists</p>
+                    <p><strong>Topics:</strong> Incident handling, digital forensics, malware analysis</p>
+                    <p><strong>Study Time:</strong> 4-6 months</p>
+                </div>
+
+                <h3>Advanced Certifications</h3>
+
+                <div class="cert-card">
+                    <div class="cert-title">CISSP (Certified Information Systems Security Professional)</div>
+                    <div class="cert-cost">Cost: $749</div>
+                    <p><strong>Best For:</strong> Security managers, architects (requires 5 years experience)</p>
+                    <p><strong>Topics:</strong> 8 domains covering all aspects of security</p>
+                    <p><strong>Study Time:</strong> 6-12 months</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-title">OSCP (Offensive Security Certified Professional)</div>
+                    <div class="cert-cost">Cost: $1,499</div>
+                    <p><strong>Best For:</strong> Hands-on penetration testers</p>
+                    <p><strong>Topics:</strong> Practical penetration testing, exploit development</p>
+                    <p><strong>Study Time:</strong> 6-12 months of intense practice</p>
+                </div>
+
+                <h3>🆓 Free Certifications</h3>
+
+                <div class="cert-card">
+                    <div class="cert-title">Google Cybersecurity Certificate <span class="free-badge">FREE</span></div>
+                    <div class="cert-cost">Cost: Free (Coursera Financial Aid)</div>
+                    <p><strong>Best For:</strong> Complete beginners</p>
+                    <p><strong>Platform:</strong> Coursera</p>
+                    <p><strong>Duration:</strong> 3-6 months</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-title">IBM Cybersecurity Analyst <span class="free-badge">FREE</span></div>
+                    <div class="cert-cost">Cost: Free (Coursera Financial Aid)</div>
+                    <p><strong>Best For:</strong> Security analyst role preparation</p>
+                    <p><strong>Platform:</strong> Coursera</p>
+                    <p><strong>Duration:</strong> 3-6 months</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-title">Cisco Networking Academy <span class="free-badge">FREE</span></div>
+                    <div class="cert-cost">Cost: Free</div>
+                    <p><strong>Best For:</strong> Networking and security fundamentals</p>
+                    <p><strong>Platform:</strong> netacad.com</p>
+                    <p><strong>Duration:</strong> Self-paced</p>
+                </div>
+            </section>
+
+            <section id="salaries" class="section">
+                <h2>💰 Salary Information by Role and Experience</h2>
+                
+                <button class="collapsible">Entry-Level Positions (0-2 years)</button>
+                <div class="collapsible-content">
+                    <p><strong>Security Analyst:</strong> $45,000 - $70,000</p>
+                    <p><strong>IT Support Specialist:</strong> $35,000 - $55,000</p>
+                    <p><strong>SOC Analyst:</strong> $40,000 - $65,000</p>
+                    <p><strong>Compliance Assistant:</strong> $40,000 - $60,000</p>
+                </div>
+
+                <button class="collapsible">Mid-Level Positions (3-5 years)</button>
+                <div class="collapsible-content">
+                    <p><strong>Security Engineer:</strong> $75,000 - $120,000</p>
+                    <p><strong>Penetration Tester:</strong> $70,000 - $110,000</p>
+                    <p><strong>Incident Response Specialist:</strong> $70,000 - $105,000</p>
+                    <p><strong>Security Architect:</strong> $90,000 - $140,000</p>
+                </div>
+
+                <button class="collapsible">Senior Positions (6+ years)</button>
+                <div class="collapsible-content">
+                    <p><strong>Security Manager:</strong> $110,000 - $170,000</p>
+                    <p><strong>Principal Security Engineer:</strong> $130,000 - $200,000</p>
+                    <p><strong>Security Consultant:</strong> $100,000 - $180,000</p>
+                    <p><strong>CISO:</strong> $200,000 - $400,000+</p>
+                </div>
+
+                <h3>💡 Salary Factors</h3>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Location Impact:</strong> Major tech hubs (San Francisco, New York, Seattle) typically offer 20-50% higher salaries but also have higher living costs.
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Industry Impact:</strong> Finance, healthcare, and government typically pay premium rates for cybersecurity professionals.
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Certification Impact:</strong> Relevant certifications can increase salary by 15-25%.
+                </div>
+            </section>
+
+            <section id="tips" class="section">
+                <h2>🎯 Essential Tips for Success</h2>
+                
+                <h3>🚀 Getting Started</h3>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Start with IT Fundamentals:</strong> If you're new to IT, begin with basic networking, operating systems, and general IT concepts before diving into security.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Build a Home Lab:</strong> Set up VirtualBox or VMware with different operating systems. Practice with tools like Wireshark, Nmap, and Metasploit.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Join Communities:</strong> Participate in forums like Reddit r/cybersecurity, Discord servers, and local cybersecurity meetups.
+                </div>
+
+                <h3>📚 Learning Strategy</h3>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Hands-On Practice:</strong> Theory is important, but practical skills are crucial. Use platforms like TryHackMe, HackTheBox, and VulnHub.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Follow the 70/20/10 Rule:</strong> 70% hands-on practice, 20% learning from others (mentors, peers), 10% formal training.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Stay Current:</strong> Follow security news through Krebs on Security, Dark Reading, and The Hacker News.
+                </div>
+
+                <h3>💼 Career Development</h3>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Network Actively:</strong> Attend conferences (RSA, Black Hat, DEF CON), join professional organizations like (ISC)² and ISACA.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Document Your Journey:</strong> Keep a portfolio of projects, write blog posts about what you learn, and maintain an active LinkedIn profile.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Continuous Learning:</strong> Technology evolves rapidly. Plan to spend 10-15% of your time learning new skills and technologies.
+                </div>
+
+                <h3>🎯 Interview Preparation</h3>
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Know the Basics:</strong> Be solid on networking fundamentals, common attack vectors, and security frameworks.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Prepare Stories:</strong> Have specific examples of problems you've solved, even from lab environments or personal projects.
+                </div>
+
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <strong>Ask Good Questions:</strong> Show genuine interest by asking about the company's security challenges and culture.
+                </div>
+            </section>
+
+            <section id="resources" class="section">
+                <h2>📚 Free Learning Resources</h2>
+                
+                <h3>🎓 Online Platforms</h3>
+                <button class="collapsible">Free Learning Platforms</button>
+                <div class="collapsible-content">
+                    <p><strong>Cybrary.it:</strong> Free cybersecurity training videos and virtual labs</p>
+                    <p><strong>SANS Cyber Aces:</strong> Free tutorials on operating systems, networking, and security</p>
+                    <p><strong>Coursera:</strong> Free courses from universities (audit for free, pay for certificate)</p>
+                    <p><strong>edX:</strong> Free courses from MIT, Harvard, and other institutions</p>
+                    <p><strong>Professor Messer:</strong> Free CompTIA training videos and study groups</p>
+                </div>
+
+                <h3>🛠️ Hands-On Practice</h3>
+                <button class="collapsible">Practice Platforms</button>
+                <div class="collapsible-content">
+                    <p><strong>TryHackMe:</strong> Beginner-friendly cybersecurity challenges and learning paths</p>
+                    <p><strong>HackTheBox:</strong> More advanced penetration testing challenges</p>
+                    <p><strong>VulnHub:</strong> Downloadable vulnerable VMs for practice</p>
+                    <p><strong>OverTheWire:</strong> War games and challenges for different skill levels</p>
+                    <p><strong>DVWA:</strong> Damn Vulnerable Web Application for web security practice</p>
+                </div>
+
+                <h3>📖 Documentation & References</h3>
+                <button class="collapsible">Essential Documentation</button>
+                <div class="collapsible-content">
+                    <p><strong>NIST Cybersecurity Framework:</strong> Industry standard for cybersecurity practices</p>
+                    <p><strong>OWASP Top 10:</strong> Most critical web application security risks</p>
+                    <p><strong>CIS Controls:</strong> Prioritized set of cybersecurity best practices</p>
+                    <p><strong>MITRE ATT&CK:</strong> Framework for understanding adversary tactics and techniques</p>
+                </div>
+
+                <h3>🎤 Podcasts & News</h3>
+                <button class="collapsible">Stay Informed</button>
+                <div class="collapsible-content">
+                    <p><strong>Podcasts:</strong> Security Now, Darknet Diaries, The CyberWire Daily</p>
+                    <p><strong>News Sites:</strong> Krebs on Security, Threatpost, Bleeping Computer</p>
+                    <p><strong>Twitter:</strong> Follow @briankrebs, @malwareunicorn, @thegrugq</p>
+                    <p><strong>YouTube:</strong> Channels like LiveOverflow, John Hammond, IppSec</p>
+                </div>
+
+                <h3>💻 Tools to Learn</h3>
+                <button class="collapsible">Essential Tools</button>
+                <div class="collapsible-content">
+                    <p><strong>Network Analysis:</strong> Wireshark, Nmap, Netcat</p>
+                    <p><strong>Vulnerability Scanning:</strong> Nessus, OpenVAS, Nikto</p>
+                    <p><strong>Penetration Testing:</strong> Metasploit, Burp Suite, OWASP ZAP</p>
+                    <p><strong>Forensics:</strong> Autopsy, Volatility, FTK Imager</p>
+                    <p><strong>SIEM:</strong> Splunk (free version), ELK Stack, IBM QRadar</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Collapsible content functionality
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.classList.contains('active')) {
+                    content.classList.remove('active');
+                } else {
+                    content.classList.add('active');
+                }
+            });
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('.section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.job-card, .cert-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#3498db';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderColor = '#e9ecef';
+            });
+        });
+
+        // Add fade-in animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
